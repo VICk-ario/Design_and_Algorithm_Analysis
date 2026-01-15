@@ -32,6 +32,8 @@ class CandyController:
             'pop': self.pop_candy,
             'peek': self.peek_candy,
             'clear': self.clear_stack,
+            'is_empty': self.is_empty_check,
+            'size': self.get_size,
         }
 
         self.view = CandyView(root, self.model, callbacks)
@@ -76,6 +78,15 @@ class CandyController:
         if messagebox.askyesno("Clear Stack", "Are you sure you want to clear all candies?"):
             self.model.clear()
             self.view.update_ui()
+
+    def is_empty_check(self):
+        result = len(self.model.stack) == 0
+        messagebox.showinfo("Stack is Empty?", str(result))
+
+    def get_size(self):
+        size = len(self.model.stack)
+        messagebox.showinfo("Stack Size", str(size))
+
 
 
 def main():

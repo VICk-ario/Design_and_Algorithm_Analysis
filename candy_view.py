@@ -121,6 +121,32 @@ class CandyView:
         )
         clear_btn.pack(pady=5)
 
+        is_empty_btn = tk.Button(
+            operations_frame,
+            text="IS EMPTY? (Check)",
+            command=lambda: self._call('is_empty'),
+            bg='#9C27B0',
+            fg='white',
+            font=('Arial', 11, 'bold'),
+            padx=20,
+            pady=10,
+            width=20
+        )
+        is_empty_btn.pack(pady=5)
+
+        size_btn = tk.Button(
+            operations_frame,
+            text="SIZE (Get Size)",
+            command=lambda: self._call('size'),
+            bg='#00BCD4',
+            fg='white',
+            font=('Arial', 11, 'bold'),
+            padx=20,
+            pady=10,
+            width=20
+        )
+        size_btn.pack(pady=5)
+
         info_frame = tk.LabelFrame(
             right_frame,
             text="Stack Information",
@@ -134,56 +160,34 @@ class CandyView:
         self.size_label = tk.Label(
             info_frame,
             text="Stack Size: 0",
-            font=('Arial', 11),
+            font=('Arial', 9),
             bg='#f5f5f5'
         )
-        self.size_label.pack(pady=5)
+        self.size_label.pack(pady=2)
 
         self.status_label = tk.Label(
             info_frame,
             text="Status: Empty",
-            font=('Arial', 11),
+            font=('Arial', 9),
             bg='#f5f5f5'
         )
-        self.status_label.pack(pady=5)
+        self.status_label.pack(pady=2)
 
         self.top_label = tk.Label(
             info_frame,
             text="Top Candy: None",
-            font=('Arial', 11),
+            font=('Arial', 9),
             bg='#f5f5f5'
         )
-        self.top_label.pack(pady=5)
+        self.top_label.pack(pady=2)
 
         self.spring_label = tk.Label(
             info_frame,
             text="Spring: Relaxed",
-            font=('Arial', 11),
+            font=('Arial', 9),
             bg='#f5f5f5'
         )
-        self.spring_label.pack(pady=5)
-
-        instructions_frame = tk.Frame(right_frame, bg='#f5f5f5')
-        instructions_frame.pack(fill=tk.X, pady=(15, 0))
-
-        instructions = tk.Label(
-            instructions_frame,
-            text="Instructions:\n1. PUSH adds a candy to the dispenser\n2. POP removes the top candy\n3. The spring compresses when PUSH is used\n4. The spring expands when POP is used",
-            font=('Arial', 10),
-            bg='#f5f5f5',
-            justify=tk.LEFT,
-            wraplength=280
-        )
-        instructions.pack(anchor=tk.W)
-
-        animate_check = tk.Checkbutton(
-            instructions_frame,
-            text="Enable Animations",
-            variable=self.animate_var,
-            bg='#f5f5f5',
-            font=('Arial', 10)
-        )
-        animate_check.pack(anchor=tk.W, pady=(5, 0))
+        self.spring_label.pack(pady=2)
 
         self.draw_dispenser()
 
